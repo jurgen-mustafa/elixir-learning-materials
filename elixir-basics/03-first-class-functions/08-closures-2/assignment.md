@@ -152,4 +152,4 @@ We get the successive values for `y`:
 * 10 = 10 - (10^2 - 100) / (2 * 100)
 
 Eventually, you'll arrive at a point where you reach `10`, and the next in line is also `10`. This is called the fixed point,
-and you have found the square root of 10.
+and you have found the square root of 100.
