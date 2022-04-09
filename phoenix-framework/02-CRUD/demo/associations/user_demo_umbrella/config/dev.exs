@@ -3,7 +3,7 @@ use Mix.Config
 # Configure your database
 config :user_demo, UserDemo.Repo,
   username: "root",
-  password: "afblijven",
+  password: "t",
   database: "user_demo_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
