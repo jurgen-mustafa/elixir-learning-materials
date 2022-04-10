@@ -24,6 +24,10 @@ defmodule TestingWeb.Router do
 
     get("/users", UserController, :index)
     get("/users/:user_id", UserController, :show)
+
+    get("/users/:user_id/edit", UserController, :edit)
+    put("/users/:user_id", UserController, :update)
+    patch("/users/:user_id", UserController, :update)
   end
 
   # Other scopes may use custom stacks.

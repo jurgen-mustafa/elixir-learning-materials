@@ -19,4 +19,11 @@ defmodule Testing.UserContext do
 
   @doc "Returns all users in the system"
   def list_users, do: Repo.all(User)
+
+  @doc "Update an existing user with external attributes"
+  def update_user(%User{} = user, attrs) do
+    user
+    |> User.changeset(attrs)
+    |> Repo.update()
+  end
 end
