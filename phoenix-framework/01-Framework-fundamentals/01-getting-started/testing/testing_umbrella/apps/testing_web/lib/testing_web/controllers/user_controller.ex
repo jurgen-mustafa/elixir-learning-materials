@@ -20,4 +20,14 @@ defmodule TestingWeb.UserController do
         render(conn, "new.html", changeset: changeset)
     end
   end
+
+  def index(conn, _params) do
+    users = UserContext.list_users()
+    render(conn, "index.html", users: users)
+  end
+
+  def show(conn, %{"user_id" => id}) do
+    user = UserContext.get_user!(id)
+    render(conn, "show.html", user: user)
+  end
 end

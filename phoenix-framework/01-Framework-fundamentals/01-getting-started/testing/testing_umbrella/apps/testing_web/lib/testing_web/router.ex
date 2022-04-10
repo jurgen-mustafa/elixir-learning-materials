@@ -18,8 +18,12 @@ defmodule TestingWeb.Router do
     pipe_through(:browser)
 
     get("/", PageController, :index)
+
     get("/users/new", UserController, :new)
     post("/users", UserController, :create)
+
+    get("/users", UserController, :index)
+    get("/users/:user_id", UserController, :show)
   end
 
   # Other scopes may use custom stacks.

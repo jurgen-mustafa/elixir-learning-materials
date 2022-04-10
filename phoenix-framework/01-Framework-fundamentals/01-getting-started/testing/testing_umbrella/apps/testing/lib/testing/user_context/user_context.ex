@@ -13,4 +13,10 @@ defmodule Testing.UserContext do
     |> User.changeset(attributes)
     |> Repo.insert()
   end
+
+  @doc "Returns a specific user or raises an error"
+  def get_user!(id), do: Repo.get!(User, id)
+
+  @doc "Returns all users in the system"
+  def list_users, do: Repo.all(User)
 end
