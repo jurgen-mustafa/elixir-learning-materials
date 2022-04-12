@@ -26,18 +26,20 @@ defmodule TestingWeb.UserController do
     render(conn, "index.html", users: users)
   end
 
-  def show(conn, %{"user_id" => id}) do
+  def show(conn, %{"id" => id}) do
     user = UserContext.get_user!(id)
     render(conn, "show.html", user: user)
   end
 
-  def edit(conn, %{"user_id" => id}) do
+  def edit(conn, %{"id" => id}) do
+    # IO.puts(id)
     user = UserContext.get_user!(id)
+    # IO.puts(user)
     changeset = UserContext.change_user(user)
     render(conn, "edit.html", user: user, changeset: changeset)
   end
 
-  def update(conn, %{"user_id" => id, "user" => user_params}) do
+  def update(conn, %{"id" => id, "user" => user_params}) do
     user = UserContext.get_user!(id)
 
     case UserContext.update_user(user, user_params) do
@@ -49,5 +51,14 @@ defmodule TestingWeb.UserController do
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", user: user, changeset: changeset)
     end
+  end
+
+  def delete(conn, %{"id" => id}) do
+    user = UserContext.get_user!(id)
+    {:ok, _user} = UserContext.delete_user(user)
+
+    conn
+    |> put_flash(:info, "User deleted successfully.")
+    |> redirect(to: Routes.user_path(conn, :index))
   end
 end

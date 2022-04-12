@@ -4,7 +4,9 @@ defmodule Testing.UserContext do
 
   @doc "Returns a user changeset"
   def change_user(%User{} = user) do
-    user |> User.changeset(%{})
+    user
+    |> Repo.preload([:credential])
+    |> User.changeset(%{})
   end
 
   @doc "Creates a user based on some external attributes"
@@ -23,7 +25,10 @@ defmodule Testing.UserContext do
   @doc "Update an existing user with external attributes"
   def update_user(%User{} = user, attrs) do
     user
+    |> Repo.preload([:credential])
     |> User.changeset(attrs)
     |> Repo.update()
   end
+
+  def delete_user(%User{} = user), do: Repo.delete(user)
 end
