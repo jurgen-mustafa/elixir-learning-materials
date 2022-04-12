@@ -17,7 +17,7 @@ config :crudopdracht, Crudopdracht.Repo,
 # you can enable the server option below.
 config :crudopdracht_web, CrudopdrachtWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
-  secret_key_base: "l+i6iMmAiuHqPWmoPdXSjV8wzYzfvkAka/+FxjFnG3LKmsI6h0OIqwscz3QnBINU",
+  secret_key_base: "nuvj7HzZR+IW6uG73fru3x2xASnHlVxWRxXcPyH+MJQ2g1kBC/JtwP5q/8XsGaI9",
   server: false
 
 # Print only warnings and errors during test

@@ -34,7 +34,7 @@ config :crudopdracht_web, CrudopdrachtWeb.Endpoint,
   url: [host: "localhost"],
   render_errors: [view: CrudopdrachtWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: Crudopdracht.PubSub,
-  live_view: [signing_salt: "I2zO2Vru"]
+  live_view: [signing_salt: "7Eo23h9z"]
 
 # Configure esbuild (the version is required)
 config :esbuild,

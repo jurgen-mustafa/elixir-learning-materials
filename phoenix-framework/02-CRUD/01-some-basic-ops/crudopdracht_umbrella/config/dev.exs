@@ -22,7 +22,7 @@ config :crudopdracht_web, CrudopdrachtWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "EktHXOxocEqAr0/AEyabR6AkY/HCZNMiS2Pw89lR0JTZYraCjIgOAJ3JEbdw127N",
+  secret_key_base: "BdWcxAi5kQxYzSkxnlqLtIPjdJTEjKCKU7Wm4QyiyXtF7RUbw112/f1F1oNloqFW",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
     esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}

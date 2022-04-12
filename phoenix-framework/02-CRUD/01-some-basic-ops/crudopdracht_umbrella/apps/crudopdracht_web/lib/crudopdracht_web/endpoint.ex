@@ -7,7 +7,7 @@ defmodule CrudopdrachtWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_crudopdracht_web_key",
-    signing_salt: "eqCmtfQY"
+    signing_salt: "IL38hAFp"
   ]
 
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
