@@ -1,0 +1,26 @@
+<h1>Listing Programs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for program <- @programs do %>
+    <tr>
+      <td><%= program.name %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.program_path(@conn, :show, program) %></span>
+        <span><%= link "Edit", to: Routes.program_path(@conn, :edit, program) %></span>
+        <span><%= link "Delete", to: Routes.program_path(@conn, :delete, program), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Program", to: Routes.program_path(@conn, :new) %></span>

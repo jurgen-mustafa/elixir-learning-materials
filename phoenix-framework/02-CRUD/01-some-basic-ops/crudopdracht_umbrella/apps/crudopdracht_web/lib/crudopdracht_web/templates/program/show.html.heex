@@ -1,0 +1,13 @@
+<h1>Show Program</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @program.name %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.program_path(@conn, :edit, @program) %></span> |
+<span><%= link "Back", to: Routes.program_path(@conn, :index) %></span>

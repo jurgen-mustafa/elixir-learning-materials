@@ -20,6 +20,8 @@ defmodule CrudopdrachtWeb.Router do
     get("/", PageController, :index)
 
     resources("/users", UserController)
+    resources("/programs", ProgramController)
+    resources("/courses", CourseController)
   end
 
   # Other scopes may use custom stacks.
