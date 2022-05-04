@@ -7,6 +7,8 @@ defmodule Crudopdracht.ProgramContext do
   alias Crudopdracht.Repo
 
   alias Crudopdracht.ProgramContext.Program
+  alias Crudopdracht.CourseContext.Course
+  alias Crudopdracht.CourseContext
 
   @doc """
   Returns the list of programs.
@@ -53,6 +55,7 @@ defmodule Crudopdracht.ProgramContext do
     %Program{}
     |> Repo.preload([:courses])
     |> Program.changeset(attrs)
+    |> maybe_put_courses(attrs)
     |> Repo.insert()
   end
 
@@ -70,7 +73,7 @@ defmodule Crudopdracht.ProgramContext do
   """
   def update_program(%Program{} = program, attrs) do
     program
-    |> Repo.preload([:courses])
+    |> Repo.preload(:courses)
     |> Program.changeset(attrs)
     |> Repo.update()
   end
@@ -101,6 +104,24 @@ defmodule Crudopdracht.ProgramContext do
 
   """
   def change_program(%Program{} = program, attrs \\ %{}) do
-    Program.changeset(program, attrs)
+    program
+    |> Repo.preload(:courses)
+    |> Program.changeset(attrs)
   end
+
+  defp maybe_put_courses(changeset, []), do: changeset
+
+  defp maybe_put_courses(changeset, attr) do
+    courses = CourseContext.get_courses(attr["courses"])
+
+    Ecto.Changeset.put_assoc(changeset, :courses, courses)
+  end
+
+  # defp maybe_put_amenities(changeset, []), do: changeset
+
+  # defp maybe_put_amenities(changeset, attrs) do
+  #   amenities = Amenities.get_amenities(attrs["amenities"])
+
+  #   Changeset.put_assoc(changeset, :amenities, amenities)
+  # end
 end

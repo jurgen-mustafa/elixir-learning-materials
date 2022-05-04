@@ -17,6 +17,15 @@
   <% end %>
   </select>
 
+
+
+
+
+  <%= label f, :coursecollection %>
+  <%= select f , :coursecollection, Enum.map(@courses, &{&1.name, &1.id}) %>
+  <%= checkbox f, :coursecollection, Enum.map(@courses, &{&1.name, &1.id}) %>
+  
+
   <div>
     <%= submit "Save" %>
   </div>

@@ -18,7 +18,10 @@ defmodule CrudopdrachtWeb.ProgramController do
   end
 
   def create(conn, %{"program" => program_params}) do
-    IO.puts(program_params)
+    # IO.puts(program_params)
+
+    require IEx
+    IEx.pry()
 
     case ProgramContext.create_program(program_params) do
       {:ok, program} ->
@@ -29,6 +32,9 @@ defmodule CrudopdrachtWeb.ProgramController do
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
+
+    # programs = ProgramContext.list_programs()
+    # render(conn, "index.html", programs: programs)
   end
 
   def show(conn, %{"id" => id}) do

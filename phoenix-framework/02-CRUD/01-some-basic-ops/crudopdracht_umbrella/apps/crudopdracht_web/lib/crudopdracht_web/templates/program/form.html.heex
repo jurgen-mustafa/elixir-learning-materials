@@ -8,10 +8,9 @@
   <%= label f, :name %>
   <%= text_input f, :name %>
   <%= error_tag f, :name %>
-
-  <%= label f, :coursecollection %>
-  <%= select f , :coursecollection, Enum.map(@courses, &{&1.name, &1.id}) %>
-
+  
+  <label>course</label>
+  <%= multiple_select(f, :courses, Enum.map(@courses, &{&1.name, &1.id})) %>
 
   <div>
     <%= submit "Save" %>

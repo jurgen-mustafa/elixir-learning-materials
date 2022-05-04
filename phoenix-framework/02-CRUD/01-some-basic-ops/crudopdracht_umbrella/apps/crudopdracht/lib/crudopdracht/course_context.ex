@@ -101,4 +101,16 @@ defmodule Crudopdracht.CourseContext do
   def change_course(%Course{} = course, attrs \\ %{}) do
     Course.changeset(course, attrs)
   end
+
+  def get_courses(nil), do: []
+
+  def get_courses(ids) do
+    Repo.all(from(a in Course, where: a.id in ^ids))
+  end
+
+  # def get_amenities(nil), do: []
+
+  # def get_amenities(ids) do
+  #   Repo.all(from(a in MyApp.Amenities.Amenity, where: a.id in ^ids))
+  # end
 end

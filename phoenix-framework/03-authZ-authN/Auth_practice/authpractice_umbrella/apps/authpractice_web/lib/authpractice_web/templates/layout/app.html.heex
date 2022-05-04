@@ -1,0 +1,16 @@
+<main class="container">
+<nav role="navigation">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href={Routes.user_path(@conn, :index) }>Users</a></li>
+          <li><a href={Routes.session_path(@conn, :new) }>Login</a></li>
+          <li><a href={Routes.session_path(@conn, :logout) }>Logout</a></li>
+          <li><a href="/user_scope">User scope</a></li>
+          <li><a href="/manager_scope">Manager scope</a></li>
+          <li><a href="/admin">Admin scope</a></li>
+        </ul>
+      </nav>
+  <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+  <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+  <%= @inner_content %>
+</main>
