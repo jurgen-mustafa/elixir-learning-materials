@@ -1,5 +1,5 @@
 defmodule AuthpracticeWeb.Guardian do
-  use Guardian, otp_app: :auth_web
+  use Guardian, otp_app: :authpractice_web
 
   alias Authpractice.UserContext
   alias Authpractice.UserContext.User
