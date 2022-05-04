@@ -6,7 +6,7 @@ defmodule Crudopdracht.CourseContext.Course do
   schema "courses" do
     field(:name, :string)
 
-    many_to_many(:programs, Program, join_through: "courses_programs")
+    many_to_many(:programs, Program, join_through: "courses_programs", on_delete: :delete_all)
   end
 
   @doc false

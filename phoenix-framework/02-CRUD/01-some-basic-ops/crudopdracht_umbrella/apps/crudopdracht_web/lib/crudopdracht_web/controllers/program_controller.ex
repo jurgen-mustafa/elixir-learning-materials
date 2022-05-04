@@ -20,8 +20,8 @@ defmodule CrudopdrachtWeb.ProgramController do
   def create(conn, %{"program" => program_params}) do
     # IO.puts(program_params)
 
-    require IEx
-    IEx.pry()
+    # require IEx
+    # IEx.pry()
 
     case ProgramContext.create_program(program_params) do
       {:ok, program} ->

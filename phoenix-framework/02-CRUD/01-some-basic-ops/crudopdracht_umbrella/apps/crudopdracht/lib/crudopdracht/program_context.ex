@@ -37,7 +37,7 @@ defmodule Crudopdracht.ProgramContext do
       ** (Ecto.NoResultsError)
 
   """
-  def get_program!(id) do: Repo.get!(Program, id)
+  def get_program!(id), do: Repo.get!(Program, id)
 
   @doc """
   Creates a program.
@@ -53,7 +53,7 @@ defmodule Crudopdracht.ProgramContext do
   """
   def create_program(attrs \\ %{}) do
     %Program{}
-    |> Repo.preload([:courses])
+    |> Repo.preload(:courses)
     |> Program.changeset(attrs)
     |> maybe_put_courses(attrs)
     |> Repo.insert()
@@ -75,6 +75,7 @@ defmodule Crudopdracht.ProgramContext do
     program
     |> Repo.preload(:courses)
     |> Program.changeset(attrs)
+    |> maybe_put_courses(attrs)
     |> Repo.update()
   end
 
