@@ -55,7 +55,7 @@ defmodule Crudopdracht.ProgramContext do
     %Program{}
     |> Repo.preload(:courses)
     |> Program.changeset(attrs)
-    |> maybe_put_courses(attrs)
+    # |> maybe_put_courses(attrs)
     |> Repo.insert()
   end
 
@@ -75,7 +75,7 @@ defmodule Crudopdracht.ProgramContext do
     program
     |> Repo.preload(:courses)
     |> Program.changeset(attrs)
-    |> maybe_put_courses(attrs)
+    # |> maybe_put_courses(attrs)
     |> Repo.update()
   end
 
@@ -110,13 +110,13 @@ defmodule Crudopdracht.ProgramContext do
     |> Program.changeset(attrs)
   end
 
-  defp maybe_put_courses(changeset, []), do: changeset
+  # defp maybe_put_courses(changeset, []), do: changeset
 
-  defp maybe_put_courses(changeset, attr) do
-    courses = CourseContext.get_courses(attr["courses"])
+  # defp maybe_put_courses(changeset, attr) do
+  #   courses = CourseContext.get_courses(attr["courses"])
 
-    Ecto.Changeset.put_assoc(changeset, :courses, courses)
-  end
+  #   Ecto.Changeset.put_assoc(changeset, :courses, courses)
+  # end
 
   # defp maybe_put_amenities(changeset, []), do: changeset
 

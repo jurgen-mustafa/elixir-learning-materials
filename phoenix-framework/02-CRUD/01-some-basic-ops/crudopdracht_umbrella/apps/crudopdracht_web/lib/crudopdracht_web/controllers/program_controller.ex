@@ -43,8 +43,9 @@ defmodule CrudopdrachtWeb.ProgramController do
   end
 
   def edit(conn, %{"id" => id}) do
-    program = ProgramContext.get_program!(id)
+    program = ProgramContext.get_program!(id) |> Crudopdracht.Repo.preload(:courses)
     changeset = ProgramContext.change_program(program)
+
     courses = CourseContext.list_courses()
     render(conn, "edit.html", program: program, changeset: changeset, courses: courses)
   end

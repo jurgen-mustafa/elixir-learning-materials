@@ -9,3 +9,12 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+alias Crudopdracht.CourseContext
+alias Crudopdracht.ProgramContext
+# alias Crudopdracht.CourseContext.Course
+# alias Crudopdracht.ProgramContext.Program
+
+{:ok, _program} = ProgramContext.create_program(%{name: "test_program"})
+{:ok, _course} = CourseContext.create_course(%{name: "test_course"})
+{:ok, _course2} = CourseContext.create_course(%{name: "test_course_2"})
