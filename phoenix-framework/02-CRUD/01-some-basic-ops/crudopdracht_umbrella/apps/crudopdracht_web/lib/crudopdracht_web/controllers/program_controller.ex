@@ -14,7 +14,8 @@ defmodule CrudopdrachtWeb.ProgramController do
   def new(conn, _params) do
     changeset = ProgramContext.change_program(%Program{})
     courses = CourseContext.list_courses()
-    render(conn, "new.html", changeset: changeset, courses: courses)
+    program = %Program{} |> Crudopdracht.Repo.preload(:courses)
+    render(conn, "new.html", changeset: changeset, courses: courses, program: program)
   end
 
   def create(conn, %{"program" => program_params}) do
