@@ -39,7 +39,7 @@ defmodule CrudopdrachtWeb.ProgramController do
   end
 
   def show(conn, %{"id" => id}) do
-    program = ProgramContext.get_program!(id)
+    program = ProgramContext.get_program!(id) |> Crudopdracht.Repo.preload(:courses)
     render(conn, "show.html", program: program)
   end
 

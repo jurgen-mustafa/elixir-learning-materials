@@ -6,6 +6,16 @@
     <strong>Name:</strong>
     <%= @program.name %>
   </li>
+  <li>
+      <strong>courses:</strong>
+      <ul>
+      <%= for c <- @program.courses do %>
+      <li>
+      <%= c.name %>
+      </li>
+      <% end %>
+      </ul>
+  </li>
 
 </ul>
 
