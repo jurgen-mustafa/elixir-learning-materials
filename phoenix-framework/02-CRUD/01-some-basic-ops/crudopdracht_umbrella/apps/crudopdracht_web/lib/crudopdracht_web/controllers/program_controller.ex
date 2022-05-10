@@ -21,18 +21,18 @@ defmodule CrudopdrachtWeb.ProgramController do
   def create(conn, %{"program" => program_params}) do
     # IO.puts(program_params)
 
-    # require IEx
-    # IEx.pry()
+    require IEx
+    IEx.pry()
 
-    case ProgramContext.create_program(program_params) do
-      {:ok, program} ->
-        conn
-        |> put_flash(:info, "Program created successfully.")
-        |> redirect(to: Routes.program_path(conn, :show, program))
+    # case ProgramContext.create_program(program_params) do
+    #   {:ok, program} ->
+    #     conn
+    #     |> put_flash(:info, "Program created successfully.")
+    #     |> redirect(to: Routes.program_path(conn, :show, program))
 
-      {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "new.html", changeset: changeset)
-    end
+    #   {:error, %Ecto.Changeset{} = changeset} ->
+    #     render(conn, "new.html", changeset: changeset)
+    # end
 
     # programs = ProgramContext.list_programs()
     # render(conn, "index.html", programs: programs)

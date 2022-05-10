@@ -17,6 +17,32 @@
   <% end %>
   </select>
 
+  <%= multiple_select(f, :courses,  Enum.map(@courses, &{&1.name, &1.id}), selected: Enum.map(@program.courses, &(&1.id))) %>
+
+  <select id="program_courses" multiple="" name="program[courses][]">
+    <option value="1">test_course</option>
+    <option value="2">test_course_2</option>
+  </select>
+
+  <input type="checkbox" id="program_courses" name="program[courses][bool][]">
+
+    <div>
+  <select id="program_courses" name="program[courses][course2][name]">
+    <option value="1">test_course</option>
+    <option value="2">test_course_2</option>
+  </select>
+  <input type="hidden" name="program[courses][course2][bool]" value="false">
+  <input type="checkbox" id="program_courses" name="program[courses][course2][bool]" value="true">
+  </div>
+
+  <div>
+    <input type="hidden" name="program[courses][course1][id]" value="empty">
+    <input type="checkbox" id="program_courses_id" name="program[courses][course1][id]" value="course1">
+    <label for="program_courses_id"> course1 </label>
+    <input type="hidden" name="program[courses][course1][bool]" value="false">
+    <input type="checkbox" id="program_courses_bool" name="program[courses][course1][bool]" value="true">
+    <label for="program_courses_bool"> bool </label>
+</div>
 
 
 

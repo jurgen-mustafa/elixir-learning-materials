@@ -15,6 +15,6 @@ alias Crudopdracht.ProgramContext
 # alias Crudopdracht.CourseContext.Course
 # alias Crudopdracht.ProgramContext.Program
 
-{:ok, _program} = ProgramContext.create_program(%{name: "test_program"})
-{:ok, _course} = CourseContext.create_course(%{name: "test_course"})
-{:ok, _course2} = CourseContext.create_course(%{name: "test_course_2"})
+{:ok, _program} = ProgramContext.create_program(%{name: "Computer Science"})
+{:ok, _course} = CourseContext.create_course(%{name: "Math 1"})
+{:ok, _course2} = CourseContext.create_course(%{name: "Communication"})

@@ -12,6 +12,13 @@
 <label>course</label>
 <%= multiple_select(f, :courses,  Enum.map(@courses, &{&1.name, &1.id}), selected: Enum.map(@program.courses, &(&1.id))) %>
 
+
+
+<%= render_courses_checkboxes(f, :courses, @courses) %> 
+
+
+
+
 <div>
   <%= submit "Save" %>
 </div>
