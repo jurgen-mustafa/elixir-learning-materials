@@ -18,4 +18,11 @@ defmodule UserCatsRef.CatContext.Cat do
     |> cast(attrs, [:name])
     |> validate_required([:name])
   end
+
+  def create_changeset(cat, attrs, user) do
+    cat
+    |> cast(attrs, [:name])
+    |> validate_required([:name])
+    |> put_assoc(:user, user)
+  end
 end

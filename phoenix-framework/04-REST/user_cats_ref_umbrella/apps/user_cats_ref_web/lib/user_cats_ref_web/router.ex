@@ -21,6 +21,14 @@ defmodule UserCatsRefWeb.Router do
     resources("/users", UserController)
   end
 
+  scope "/api", UserCatsRefWeb do
+    pipe_through(:api)
+
+    resources "/users", UserController, only: [] do
+      resources("/cats", CatController)
+    end
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", UserCatsRefWeb do
   #   pipe_through :api

@@ -7,6 +7,7 @@ defmodule UserCatsRef.CatContext do
   alias UserCatsRef.Repo
 
   alias UserCatsRef.CatContext.Cat
+  alias UserCatsRef.UserContext.User
 
   @doc """
   Returns the list of cats.
@@ -49,9 +50,9 @@ defmodule UserCatsRef.CatContext do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_cat(attrs \\ %{}) do
+  def create_cat(attrs, %User{} = user) do
     %Cat{}
-    |> Cat.changeset(attrs)
+    |> Cat.create_changeset(attrs, user)
     |> Repo.insert()
   end
 
@@ -100,5 +101,9 @@ defmodule UserCatsRef.CatContext do
   """
   def change_cat(%Cat{} = cat, attrs \\ %{}) do
     Cat.changeset(cat, attrs)
+  end
+
+  def load_cats(%User{} = u) do
+    u |> Repo.preload([:cats])
   end
 end
