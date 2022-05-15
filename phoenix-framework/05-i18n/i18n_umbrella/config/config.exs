@@ -52,7 +52,7 @@ config :phoenix, :json_library, Jason
 config :i18n_web, I18nWeb.Gettext,
   # ja stands for Japanese.
   locales: ~w(en ja),
-  default_locale: "ja"
+  default_locale: "en"
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

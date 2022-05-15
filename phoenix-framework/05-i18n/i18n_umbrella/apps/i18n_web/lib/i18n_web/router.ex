@@ -2,12 +2,20 @@ defmodule I18nWeb.Router do
   use I18nWeb, :router
 
   pipeline :browser do
+    # plug(:accepts, ["html"])
+    # plug(:fetch_session)
+    # plug(:fetch_live_flash)
+    # plug(:put_root_layout, {I18nWeb.LayoutView, :root})
+    # plug(:protect_from_forgery)
+    # plug(:put_secure_browser_headers)
     plug(:accepts, ["html"])
     plug(:fetch_session)
     plug(:fetch_live_flash)
     plug(:put_root_layout, {I18nWeb.LayoutView, :root})
     plug(:protect_from_forgery)
     plug(:put_secure_browser_headers)
+    # This is new
+    plug(I18nWeb.Plugs.Locale)
   end
 
   pipeline :api do
